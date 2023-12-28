@@ -1,0 +1,32 @@
+interface Animal {
+    default void sound() {
+        System.out.println("Animal makes a sound");
+    }
+}
+
+interface Mammal extends Animal {
+    default void sound() {
+        System.out.println("Mammal makes a sound");
+    }
+}
+
+interface Bird extends Animal {
+    default void sound() {
+        System.out.println("Bird makes a sound");
+    }
+}
+
+class Bat implements Mammal, Bird {
+    @Override
+    public void sound() {
+        System.out.println("Bat makes a unique sound");
+    }
+}
+
+public class DiamondProblemExample {
+    public static void main(String[] args) {
+        Bat bat = new Bat();
+
+        bat.sound();
+    }
+}
